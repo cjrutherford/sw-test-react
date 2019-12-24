@@ -5,6 +5,7 @@ export class UserService{
     uri = process.env.REACT_APP_STORE_URI;
     constructor(){
         this.model = UserModel(this.uri);
+        console.log('initialized user service');
     }
 
     async createNew(name, userName, password, teamId){
@@ -24,7 +25,7 @@ export class UserService{
             if(!user) throw new Error('unable to locate user in database.');
             const comparison = await CompareHash(pass, user.password);
             if(!comparison) throw new Error('Sorry there was something wrong.....');
-            return user;
+            return user;cj
         }catch(e) {
             throw e;
         }

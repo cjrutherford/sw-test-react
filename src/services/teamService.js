@@ -4,11 +4,12 @@ export class TeamService{
     uri = process.env.REACT_APP_STORE_URI;
     constructor(){
         this.model = TeamModel(this.uri);
+        console.log('initialized team service');
     }
 
-    async createNew(name){
+    async createNew(name, ownerId){
         try{
-            const newTeam = await this.model.insert({name, lastUpdated: Date.now()});
+            const newTeam = await this.model.insert({name, owner: ownerId, lastUpdated: Date.now()});
             if(!newTeam) throw new Error('Unable to Create Team....');
             return newTeam;
         } catch (e) {

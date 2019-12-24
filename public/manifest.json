@@ -16,6 +16,10 @@
       "src": "logo512.png",
       "type": "image/png",
       "sizes": "512x512"
+    },
+    {
+      "src":"node-hash.json",
+      "type":"application/json"
     }
   ],
   "start_url": ".",
